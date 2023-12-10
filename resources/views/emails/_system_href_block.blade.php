@@ -1,0 +1,1 @@
+<a href="{{ Config::get('app.url').'/admin' }}">Nesmelov&Co</a>

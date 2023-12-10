@@ -1,0 +1,17 @@
+/public/images
+/vendor
+/tests
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+settings.xml
+addmigrate.sh
+cashclear.sh
+host_connect.sh
+migrate.sh
+composer.lock
+composer.json
