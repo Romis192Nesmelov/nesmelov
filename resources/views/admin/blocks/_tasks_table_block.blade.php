@@ -72,7 +72,7 @@
                         $taskValue = Helper::calculateOverTaskVal($task);
                         $taskValueWithoutAll = Helper::calculateOverTaskVal($task, true, true, $task->use_duty, true);
 
-                        $taskDuty = $task->use_duty ? Helper::calculateTaskDuty($taskValue, $task->tax_type) : 0;
+                        $taskDuty = $task->use_duty ? Helper::calculateTaskDuty($taskValue, $task) : 0;
                         $taskPercents = $task->percents ? Helper::calculateTaskPercents($taskValue - $taskDuty, $task->percents) : 0;
                         if (count($task->subTasks) && $presentSubTasks) {
                             foreach ($task->subTasks as $subTask) {
@@ -82,7 +82,7 @@
                                     && date('Y',$subTask->completion_time) == date('Y')
                                     ) {
                                         $subTaskValueWithoutAll = Helper::calculateOverTaskVal($subTask, true, false, $task->use_duty, true);
-                                        $subTaskDuty = $task->use_duty ? Helper::calculateTaskDuty($subTask->value, $task->tax_type) : 0;
+                                        $subTaskDuty = $task->use_duty ? Helper::calculateTaskDuty($subTask->value, $task) : 0;
                                         $taskPercents += $subTask->percents ? Helper::calculateTaskPercents($subTaskValueWithoutAll - $subTaskDuty, $subTask->percents) : 0;
                                 }
                             }

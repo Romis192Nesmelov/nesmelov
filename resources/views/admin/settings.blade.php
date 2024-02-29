@@ -68,7 +68,7 @@
                                             'placeholder' => 'Фикс.взносы в ПФРФ',
                                             'min' => 0,
                                             'max' => 100000,
-                                            'value' => $data['fix_tax']->value
+                                            'value' => $data['settings']['fix_tax']
                                         ])
                                     </div>
                                 </div>
@@ -78,7 +78,16 @@
                             <div class="panel panel-flat">
                                 <div class="panel-body">
                                     @include('admin.blocks._input_block', [
-                                        'label' => 'Налог СЗН',
+                                        'label' => 'Налог для юр.лиц',
+                                        'name' => 'tax1',
+                                        'type' => 'number',
+                                        'placeholder' => 'Налог для юр.лиц',
+                                        'min' => 0,
+                                        'max' => 90,
+                                        'value' => $data['settings']['tax1']
+                                    ])
+                                    @include('admin.blocks._input_block', [
+                                        'label' => 'Налог для физ.лиц',
                                         'name' => 'tax2',
                                         'type' => 'number',
                                         'placeholder' => 'Налог СЗН',

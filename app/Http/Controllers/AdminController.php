@@ -265,7 +265,6 @@ class AdminController extends UserController
         ]);
 
         $fieldsSettings = $this->processingFields('show_text', [
-            'fix_tax',
             'address',
             'tin',
             'bank_ie',

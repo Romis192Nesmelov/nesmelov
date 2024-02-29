@@ -411,7 +411,7 @@
                     @php
                         $taskValueWithoutPercents = Helper::calculateSubTasksValue($data['task'],true);
                         $taskValue = Helper::calculateSubTasksValue($data['task']);
-                        $taskDuty = $data['task']->use_duty ? Helper::calculateTaskDuty($taskValue, $data['task']->tax_type) : 0;
+                        $taskDuty = $data['task']->use_duty ? Helper::calculateTaskDuty($taskValue, $data['task']) : 0;
                         $taskPercents = $taskValue - $taskValueWithoutPercents;
                     @endphp
 

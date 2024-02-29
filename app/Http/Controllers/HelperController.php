@@ -46,7 +46,7 @@ class HelperController extends Controller
         if ($checkFake && $task->status == 7) $value = $this->calculateMyPercent($task, $baseValue);
         elseif ( ($task->status == 3 || $task->status == 4) && $task->paid_off && !$fullVal) $value = $task->paid_off;
 
-        if ($duty) $value -= $this->calculateTaskDuty($value, $task->tax_type);
+        if ($duty) $value -= $this->calculateTaskDuty($value, $task);
         if ($percents && $task->percents) $value -= $this->calculateTaskPercents($value,$task->percents);
         if ($task->paid_off && !$fullVal) $value -= $task->paid_off;
 
@@ -65,10 +65,10 @@ class HelperController extends Controller
         return $value;
     }
     
-    public function calculateTaskDuty($value, $taxType)
+    public function calculateTaskDuty($value, $task)
     {
         $settings = Settings::getSettings();
-        return $value * (int)($taxType ? $settings['tax1'] : $settings['tax2']) * 0.01;
+        return $value * (int)($task->tax_type || $task->ltd != 2 ? $settings['tax1'] : $settings['tax2']) * 0.01;
     }
     
     public function calculateTaskPercents($value, $percents)
