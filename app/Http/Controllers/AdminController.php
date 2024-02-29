@@ -248,6 +248,7 @@ class AdminController extends UserController
     public function editSettings()
     {
         $this->validate($this->request, [
+            'tax' => 'required|integer|max:90',
             'tax1' => 'required|integer|max:90',
             'tax2' => 'required|integer|max:90',
             'my_percent' => 'required|integer|min:10|max:90',
@@ -278,6 +279,7 @@ class AdminController extends UserController
         ]);
 
         $fieldsRequisites = $this->processingFields('show_text', [
+            'tax',
             'tax1',
             'tax2',
             'my_percent',

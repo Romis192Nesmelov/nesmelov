@@ -68,7 +68,8 @@ class HelperController extends Controller
     public function calculateTaskDuty($value, $task)
     {
         $settings = Settings::getSettings();
-        return $value * (int)($task->tax_type || $task->ltd != 2 ? $settings['tax1'] : $settings['tax2']) * 0.01;
+        if ((int)($task->tax_type)) return $value * $settings['tax'] * 0.01;
+        else return $value * (int)($task->ltd != 2 ? $settings['tax1'] : $settings['tax2']) * 0.01;
     }
     
     public function calculateTaskPercents($value, $percents)

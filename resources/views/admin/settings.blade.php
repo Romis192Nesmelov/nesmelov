@@ -33,12 +33,12 @@
                                     <div class="panel-body">
                                         @include('admin.blocks._input_block', [
                                             'label' => 'Налог ИП',
-                                            'name' => 'tax1',
+                                            'name' => 'tax',
                                             'type' => 'number',
                                             'placeholder' => 'Налог ИП',
                                             'min' => 1,
                                             'max' => 90,
-                                            'value' => $data['settings']['tax1']
+                                            'value' => $data['settings']['tax']
                                         ])
                                     </div>
                                 </div>
@@ -75,26 +75,34 @@
                             </div>
                         </div>
                         <div class="se-block col-lg-9 col-md-9 col-sm-12 col-xs-12 {{ (int)Settings::getSettings()['my_status'] ? 'hidden' : '' }}">
-                            <div class="panel panel-flat">
-                                <div class="panel-body">
-                                    @include('admin.blocks._input_block', [
-                                        'label' => 'Налог для юр.лиц',
-                                        'name' => 'tax1',
-                                        'type' => 'number',
-                                        'placeholder' => 'Налог для юр.лиц',
-                                        'min' => 0,
-                                        'max' => 90,
-                                        'value' => $data['settings']['tax1']
-                                    ])
-                                    @include('admin.blocks._input_block', [
-                                        'label' => 'Налог для физ.лиц',
-                                        'name' => 'tax2',
-                                        'type' => 'number',
-                                        'placeholder' => 'Налог СЗН',
-                                        'min' => 1,
-                                        'max' => 90,
-                                        'value' => $data['settings']['tax2']
-                                    ])
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="panel panel-flat">
+                                    <div class="panel-body">
+                                        @include('admin.blocks._input_block', [
+                                            'label' => 'Налог для юр.лиц',
+                                            'name' => 'tax1',
+                                            'type' => 'number',
+                                            'placeholder' => 'Налог для юр.лиц',
+                                            'min' => 0,
+                                            'max' => 90,
+                                            'value' => $data['settings']['tax1']
+                                        ])
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="panel panel-flat">
+                                    <div class="panel-body">
+                                        @include('admin.blocks._input_block', [
+                                            'label' => 'Налог для физ.лиц',
+                                            'name' => 'tax2',
+                                            'type' => 'number',
+                                            'placeholder' => 'Налог СЗН',
+                                            'min' => 1,
+                                            'max' => 90,
+                                            'value' => $data['settings']['tax2']
+                                        ])
+                                    </div>
                                 </div>
                             </div>
                         </div>
