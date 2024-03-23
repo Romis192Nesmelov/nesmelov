@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Work;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\User;
@@ -12,7 +11,6 @@ use App\News;
 use App\Branch;
 use App\Question;
 use App\SentEmail;
-//use Carbon\Carbon;
 use Illuminate\Support\Facades\Settings;
 use Illuminate\Support\Facades\Helper;
 

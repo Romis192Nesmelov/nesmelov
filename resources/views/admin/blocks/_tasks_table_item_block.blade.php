@@ -1,5 +1,11 @@
 <tr role="row" class="tasks-row" id="{{ 'task_'.$task->id }}">
-    <td class="text-left head"><a href="/admin/tasks{{ isset($suffix) ? '/'.$suffix : '' }}?id={{ $task->id }}">{{ $task->name }}</a></td>
+    <td class="text-left head">
+        @if (date('Y') == $data['year'])
+            <a href="/admin/tasks{{ isset($suffix) ? '/'.$suffix : '' }}?id={{ $task->id }}">{{ $task->name }}</a>
+        @else
+            {{ $task->name }}
+        @endif
+    </td>
     <td class="text-center value">
         <nobr>
             {{ Helper::moneyFormat(Helper::calculateOverTaskVal($task)) }}₽
