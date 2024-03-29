@@ -1,6 +1,6 @@
 <tr role="row" class="tasks-row" id="{{ 'task_'.$task->id }}">
     <td class="text-left head">
-        @if (date('Y') == $data['year'])
+        @if ( (isset($data['year']) && date('Y') == $data['year']) || (date('Y') == date('Y',$task->completion_time)) )
             <a href="/admin/tasks{{ isset($suffix) ? '/'.$suffix : '' }}?id={{ $task->id }}">{{ $task->name }}</a>
         @else
             {{ $task->name }}
