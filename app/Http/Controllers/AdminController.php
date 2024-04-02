@@ -184,7 +184,7 @@ class AdminController extends UserController
             $this->breadcrumbs['chapters/news/add'] = 'Добавление новости';
             return $this->showView('news');
         } else {
-            $this->data['news'] = News::orderBy('time','desc')->paginate(10);
+            $this->data['news'] = News::orderBy('time','desc')->get();
             return $this->showView('all_news');
         }
     }
