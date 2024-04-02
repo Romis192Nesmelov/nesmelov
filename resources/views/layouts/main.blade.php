@@ -47,9 +47,9 @@
     <div class="container text-center">
         <div class="logo"><img src="{{ asset('images/logo.jpg') }}"></div>
         <p class="small">©nesmelov.com {{ date('Y') }}г.<br>{{ $data['seo']['meta_description'] }}</p>
-        <p>
-            <a href="https://play.google.com/store/apps/details?id=nesmelov.apk" target="_blank"><i class="icon-android"></i></a>
-        </p>
+{{--        <p>--}}
+{{--            <a href="https://play.google.com/store/apps/details?id=nesmelov.apk" target="_blank"><i class="icon-android"></i></a>--}}
+{{--        </p>--}}
         {{--<p class="small"><a href="{{ Config::get('app.old_site') }}" target="_blank">Предыдущая версия сайта</a></p>--}}
     </div>
 </footer>

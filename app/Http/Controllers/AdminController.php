@@ -296,7 +296,7 @@ class AdminController extends UserController
         $validationArr = [
             'id' => $this->validationId.'branches',
             'image' => $this->validationImage,
-            'rus' => 'required|min:2|max:20|unique:branches,rus,'.$this->request->id,
+            'rus' => 'required|min:2|max:50|unique:branches,rus,'.$this->request->id,
             'text' => 'required|min:100|max:3000',
         ];
         
