@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Settings;
 use Illuminate\Support\Facades\Gate;
 use App\Task;
@@ -178,12 +180,6 @@ class HelperController extends Controller
 
     public function forbbidenTaskEdit($task)
     {
-        return (
-            Gate::denies('owner-or-user-task',$task) ||
-            (
-                ($task->status == 1 || $task->status == 6) &&
-                date('Y', $task->completion_time) != date('Y')
-            )
-        );
+        return Gate::denies('owner-or-user-task',$task);
     }
 }

@@ -1,9 +1,9 @@
 <tr role="row" class="tasks-row" id="{{ 'task_'.$task->id }}">
     <td class="text-left head">
-        @if ( (isset($data['year']) && date('Y') == $data['year']) || (date('Y') == date('Y',$task->completion_time)) )
-            <a href="/admin/tasks{{ isset($suffix) ? '/'.$suffix : '' }}?id={{ $task->id }}">{{ $task->name }}</a>
-        @else
+        @if ( Helper::forbbidenTaskEdit($task) )
             {{ $task->name }}
+        @else
+            <a href="/admin/tasks{{ isset($suffix) ? '/'.$suffix : '' }}?id={{ $task->id }}">{{ $task->name }}</a>
         @endif
     </td>
     <td class="text-center value">
