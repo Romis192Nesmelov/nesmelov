@@ -219,6 +219,7 @@
                                             'label' => 'Сторонний %',
                                             'name' => 'percents',
                                             'type' => 'number',
+                                            'step' => 0.1,
                                             'min' => 0,
                                             'max' => 100,
                                             'placeholder' => 'Сторонний процент (%)',
