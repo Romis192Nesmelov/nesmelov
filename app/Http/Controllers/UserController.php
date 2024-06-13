@@ -42,7 +42,8 @@ class UserController extends Controller
     {
         $this->breadcrumbs = ['users' => 'Пользователи'];
         if ($this->request->has('id')) {
-            $this->data['user'] = User::findOfFail($this->request->id);
+            $this->data['user'] = User::where('id',$this->request->id)->first();
+            if (!$this->data['user']) abort(404);
             if (Gate::denies('user-edit',$this->data['user'])) abort(403, $this->youHaveNoRights);
             $this->breadcrumbs['users?id='.$this->data['user']->id] = $this->data['user']->name;
             return $this->showView('user');
