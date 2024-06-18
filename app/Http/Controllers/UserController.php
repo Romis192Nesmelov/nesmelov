@@ -423,7 +423,7 @@ class UserController extends Controller
         if (Gate::allows('is-admin')) $adminOrOwnerValidationArr['paid_percents'] = 'in:0,1';
         else $ignoreFields[] = 'paid_percents';
         
-        $timeFields = ['start_time','completion_time'];
+        $timeFields = ['start_time','completion_time','convention_date'];
         if ($this->request->use_payment_time == 'on') {
             $validationArr['payment_time'] = $this->validationDate;
             $timeFields[] = 'payment_time';
@@ -498,7 +498,6 @@ class UserController extends Controller
                     } elseif ($k) $bill->delete();
                 }
             }
-
             $task->update($taskFields);
 
             // Saving foreign documents
