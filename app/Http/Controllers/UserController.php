@@ -423,7 +423,7 @@ class UserController extends Controller
         if (Gate::allows('is-admin')) $adminOrOwnerValidationArr['paid_percents'] = 'in:0,1';
         else $ignoreFields[] = 'paid_percents';
         
-        $timeFields = ['start_time','completion_time','convention_date'];
+        $timeFields = ['start_time','completion_time'];
         if ($this->request->use_payment_time == 'on') {
             $validationArr['payment_time'] = $this->validationDate;
             $timeFields[] = 'payment_time';
@@ -562,7 +562,6 @@ class UserController extends Controller
             $fields['convention_number'] = null;
             $fields['convention_date'] = null;
         }
-
         return $fields;
     }
 
