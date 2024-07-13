@@ -42,7 +42,6 @@
 <body>
 
 @include('blocks._nav_block')
-
 @yield('content')
 
 <footer>
@@ -57,6 +56,5 @@
 </footer>
 
 <div id="on_top_button"><i class="glyphicon glyphicon-upload"></i></div>
-
 </body>
 </html>

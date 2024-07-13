@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-//use App\Question;
 use App\News;
 use App\Branch;
-use App\Panorama;
-//use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Settings;
 
 class StaticController extends Controller
@@ -18,24 +15,24 @@ class StaticController extends Controller
         return $this->showView('home');
     }
 
-    public function panorama($slug=null)
-    {
-        $this->data['panoramas'] = Panorama::where('active',1)->get();
-        if ($slug) {
-            if (!$this->data['panorama'] = Panorama::where('href',$slug)->where('active',1)->first()) abort(404);
-            return $this->showView('panorama');
-        } else {
-            $this->getIndexData();
-            return $this->showView('home');
-        }
-    }
+//    public function panorama($slug=null)
+//    {
+//        $this->data['panoramas'] = Panorama::where('active',1)->get();
+//        if ($slug) {
+//            if (!$this->data['panorama'] = Panorama::where('href',$slug)->where('active',1)->first()) abort(404);
+//            return $this->showView('panorama');
+//        } else {
+//            $this->getIndexData();
+//            return $this->showView('home');
+//        }
+//    }
 
-    public function news($slug)
-    {
-        $news = News::findBySlug($slug)->toArray();
-        $news['date'] = date('d.m.Y', $news['time']);
-        return response()->json(['success' => true, 'news' => $news]);
-    }
+//    public function news($slug)
+//    {
+//        $news = News::findBySlug($slug)->toArray();
+//        $news['date'] = date('d.m.Y', $news['time']);
+//        return response()->json(['success' => true, 'news' => $news]);
+//    }
 
 //    public function checkingTasks()
 //    {
@@ -59,7 +56,7 @@ class StaticController extends Controller
     {
         $this->data['seo'] = Settings::getSeoTags();
         $this->data['branches'] = Branch::where('active',1)->get();
-        $mainMenu = [['href' => 'news', 'name' => 'Новости']];
+//        $mainMenu = [['href' => 'news', 'name' => 'Новости']];
         foreach ($this->data['branches'] as $k => $item) {
             $mainMenu[] = ['href' => $item->eng, 'name' => $item->rus];
         }

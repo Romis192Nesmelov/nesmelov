@@ -3,15 +3,9 @@
 @section('content')
     @include('blocks._video_block')
 
-    @include('blocks._news_block')
+{{--    @include('blocks._news_block')--}}
 
     @for ($i=0;$i<count($data['branches']);$i++)
-        @include('blocks._branch_block', [
-            'addClass' => ($i % 2 ? 'pull-right' : ''),
-            'branch' => $data['branches'][$i],
-            'next' => $i<count($data['branches'])-1 ? $data['branches'][$i+1]->eng : null
-        ])
-
         @if (!$i)
             <?php ob_start(); ?>
             @foreach($data['branches'] as $branch)
@@ -25,6 +19,12 @@
             @endforeach
             @include('blocks._gray_block', ['head' => 'Основные направления профессиональной деятельности', 'content' => ob_get_clean()])
         @endif
+
+        @include('blocks._branch_block', [
+            'addClass' => ($i % 2 ? 'pull-right' : ''),
+            'branch' => $data['branches'][$i],
+            'next' => $i<count($data['branches'])-1 ? $data['branches'][$i+1]->eng : null
+        ])
 
         @if (count($data['branches'][$i]->works))
             <?php ob_start(); ?>

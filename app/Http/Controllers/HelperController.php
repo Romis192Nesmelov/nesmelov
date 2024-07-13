@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Settings;
 use Illuminate\Support\Facades\Gate;
 use App\Task;

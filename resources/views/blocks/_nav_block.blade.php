@@ -34,4 +34,5 @@
         </ul>
     </div>
 </nav>
+<div class="feedback"><a href="mailto:romis@nesmelov.com" data-toggle="modal">Обратная связь</a></div>
 {{--<div class="feedback"><a href="#feedback_modal" data-toggle="modal">Напишите нам!</a></div>--}}
