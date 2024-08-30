@@ -33465,6 +33465,7 @@ footer a > i {
     position: relative;
     background-attachment: fixed;
     background-size: cover;
+    background-position: top center;
     box-shadow: 0 0 20px rgba(0,0,0,0.7);
     z-index: 990;
 }

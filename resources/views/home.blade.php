@@ -31,7 +31,7 @@
             <div class="portfolio">
                 @foreach($data['branches'][$i]->works as $k => $work)
                     @if ($work->active)
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
                             <a href="{{ $work->url ? $work->url : asset($work->full) }}" {{ $work->url ? 'target=_blank' : 'class=img-preview' }} title="{{ $work->description }}"><img src="{{ asset($work->preview) }}" /></a>
                         </div>
                     @endif
