@@ -128,7 +128,7 @@ trait HelperTrait
     {
         $customer = Customer::findOrFail($customerId);
         $validationArr['status'] = 'required|integer|min:1|max:5';
-        if ($customer->ltd != 2) $timeFields[] = 'convention_date';
+        if ($customer->ltd != 2 && !in_array('convention_date', $timeFields)) $timeFields[] = 'convention_date';
         return [$validationArr, $timeFields];
     }
 
