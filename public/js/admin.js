@@ -10338,8 +10338,8 @@ $(document).ready(function () {
             hidden.addClass('hidden');
             showing.removeClass('hidden');
         } else {
-            if ($('form.task-form input[name=use_duty]').is(':checked'))
-                $('.col-3-to-4.col-md-4').removeClass('col-md-4').addClass('col-md-3');
+            // if ($('form.task-form input[name=use_duty]').is(':checked'))
+            //     $('.col-3-to-4.col-md-4').removeClass('col-md-4').addClass('col-md-3');
             hidden.removeClass('hidden');
             showing.addClass('hidden');
         }
