@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ForbiddenGetParamsMiddleware;
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/', 'StaticController@index');
-Route::post('/news/{slug}', 'StaticController@news');
+Route::get('/', 'StaticController@index')->middleware(ForbiddenGetParamsMiddleware::class);
+//Route::post('/news/{slug}', 'StaticController@news');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', 'UserController@index');
